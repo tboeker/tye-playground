@@ -7,6 +7,23 @@
 
 registry: tboeker
 name: microservice
+namespace: tboeker
+
+ingress:
+  - name: ingress
+    bindings:
+      - port: 8080
+    rules:
+      - path: /frontend
+        service: frontend
+      - path: /backend
+        service: backend
+      # - host: a.example.com
+      #   service: app-a
+      # - host: b.example.com
+      #   service: app-b
+
+
 services:
 - name: frontend
   project: frontend/frontend.csproj
